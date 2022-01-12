@@ -6,7 +6,7 @@ class MainPageLocators:
 
 
 class LoginPageLocators:
-    ID_LOGIN = (By.CSS_SELECTOR, "#id_login-username")
-    ID_LOGIN_PASSWORD = (By.CSS_SELECTOR, "#id_login-password")
-    BUTTON_LOGIN = (By.CSS_SELECTOR, 'button[name="login_submit"]')
+    ID_LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
+    ID_REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
+
 
