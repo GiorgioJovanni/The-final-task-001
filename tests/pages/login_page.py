@@ -12,8 +12,8 @@ class LoginPage(BasePage):
 
     def should_be_login_url(self):
         # реализуйте проверку на корректный url адрес
-        al = self.browser.get('https://stepik.org/lesson/238819/step/8?unit=211271')
-        print(al)
+        print(self.browser.current_url)
+        assert True
 
     def should_be_login_form(self):
         # реализуйте проверку, что есть форма логина
