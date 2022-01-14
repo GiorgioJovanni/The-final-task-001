@@ -3,8 +3,8 @@ import time
 import pytest
 
 from locators import MainPageLocators
+from product_page import ProductPage
 from tests.pages.main_page import MainPage
-from tests.pages.product_page import ProductPage
 
 
 def test_guest_can_go_to_login_page(browser):
@@ -36,14 +36,28 @@ def test_guest_can_add_product_to_basket(browser, link):
 
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0'
+    link1 = 'http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/?promo=offer0'
     page = MainPage(browser, link)
     page.open()
     browser.find_element(*MainPageLocators.BUTTON_ADD_TO_BASKET).click()
     page.solve_quiz_and_get_code()
-    page.should_not_be_success_message()
+    page_basket = ProductPage(browser, link1)
+    page_basket.should_not_be_success_message()
+
 
 def test_guest_cant_see_success_message(browser):
     link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0'
     page = MainPage(browser, link)
     page.open()
     page.should_not_be_success_message()
+
+
+def test_message_disappeared_after_adding_product_to_basket(browser):
+    link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0'
+    link1 = 'http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/?promo=offer0'
+    page = MainPage(browser, link)
+    page.open()
+    browser.find_element(*MainPageLocators.BUTTON_ADD_TO_BASKET).click()
+    page.solve_quiz_and_get_code()
+    page_basket = ProductPage(browser, link1)
+    page_basket.should_dissapear_of_success_message()

@@ -12,7 +12,7 @@ class LoginPageLocators:
 
 
 class BasketPage:
-    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages")
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages > div:nth-child(1) > div")
 
 
 
