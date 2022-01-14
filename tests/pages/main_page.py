@@ -1,7 +1,7 @@
 import math
 
 from tests.pages.base_page import BasePage
-from .locators import MainPageLocators
+from .locators import MainPageLocators, BasketPage
 from selenium.common.exceptions import NoAlertPresentException
 from .login_page import LoginPage
 
@@ -15,8 +15,15 @@ class MainPage(BasePage):
     def should_be_login_link(self):
         assert self.is_element_present(*MainPageLocators.LOGIN_LINK), "Login link is not presented"
 
+    def should_be_basket_massegrs(self):
+        assert self.is_element_present(*BasketPage.SUCCESS_MESSAGE), "Element is not presented"
+
     def add_product_in_basket(self):
         return True
+
+    def should_not_be_success_message(self):
+        assert not self.is_element_present(*BasketPage.SUCCESS_MESSAGE), \
+            "Success message is presented"
 
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert

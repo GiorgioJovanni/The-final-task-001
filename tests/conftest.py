@@ -8,7 +8,7 @@ def pytest_addoption(parser):
                  help="Choose language. For ex.: ru, es, en, fr")
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="module")
 def browser(request):
     print("\nstart browser for test..")
     language = request.config.getoption("language")

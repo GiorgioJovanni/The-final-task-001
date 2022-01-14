@@ -11,4 +11,8 @@ class LoginPageLocators:
     ID_REGISTER_FORM = (By.CSS_SELECTOR, "#register_form")
 
 
+class BasketPage:
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages")
+
+
 
