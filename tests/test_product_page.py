@@ -3,7 +3,7 @@ from main_page import MainPage
 from product_page import ProductPage
 
 
-def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
+def test_user_cant_see_product_in_basket_opened_from_main_page(browser):
     link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0'
     link1 = 'http://selenium1py.pythonanywhere.com/ru/basket/'
     page = MainPage(browser, link)
@@ -15,7 +15,7 @@ def test_guest_cant_see_product_in_basket_opened_from_main_page(browser):
     page_basket.guest_see_text_your_basket_is_emty(text)
 
 
-def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
+def test_user_cant_see_product_in_basket_opened_from_product_page(browser):
     link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0'
     link1 = 'http://selenium1py.pythonanywhere.com/ru/basket/'
     page = MainPage(browser, link)
