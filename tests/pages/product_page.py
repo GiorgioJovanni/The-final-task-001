@@ -18,3 +18,6 @@ class ProductPage(BasePage):
             assert self.is_disappeared(*BasketPage.SUCCESS_MESSAGE), "Element is not disappeared"
         except AssertionError:
             print("Test failed")
+
+    def guest_see_text_your_basket_is_emty(self, text):
+        assert '\n            Ваша корзина пуста\n            Продолжить покупки\n        ' == text
