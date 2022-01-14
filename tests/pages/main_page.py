@@ -21,9 +21,6 @@ class MainPage(BasePage):
     def should_be_basket_massegrs(self):
         assert self.is_element_present(*BasketPage.SUCCESS_MESSAGE), "Element is not presented"
 
-    def add_product_in_basket(self):
-        return True
-
 
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
@@ -38,4 +35,3 @@ class MainPage(BasePage):
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
-        print(answer)
