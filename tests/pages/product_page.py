@@ -18,5 +18,3 @@ class ProductPage(BasePage):
             assert self.is_disappeared(*BasketPage.SUCCESS_MESSAGE), "Element is not disappeared"
         except AssertionError:
             print("Test failed")
-
-
