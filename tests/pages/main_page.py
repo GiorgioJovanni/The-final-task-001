@@ -21,9 +21,6 @@ class MainPage(BasePage):
     def add_product_in_basket(self):
         return True
 
-    def should_not_be_success_message(self):
-        assert not self.is_element_present(*BasketPage.SUCCESS_MESSAGE), \
-            "Success message is presented"
 
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
