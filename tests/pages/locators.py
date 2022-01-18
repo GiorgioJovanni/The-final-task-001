@@ -7,7 +7,7 @@ class BasePageLocators:
 
 
 class MainPageLocators:
-    BUTTON_GO_YO_BASKET = (By.XPATH, '//*[@id="default"]/header/div[1]/div/div[2]/span/a')
+    BUTTON_GO_TO_BASKET = (By.XPATH, '//*[@id="default"]/header/div[1]/div/div[2]/span/a')
     BUTTON_ADD_TO_BASKET = (By.CSS_SELECTOR, '.btn-add-to-basket')
 
 
