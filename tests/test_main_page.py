@@ -1,5 +1,3 @@
-import time
-
 import pytest
 
 from locators import MainPageLocators, BasketPage
@@ -44,13 +42,6 @@ def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     page_basket.should_not_be_success_message()
 
 
-def test_guest_cant_see_success_message(browser):
-    link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0'
-    page = MainPage(browser, link)
-    page.open()
-    page.should_not_be_success_message()
-
-
 def test_message_disappeared_after_adding_product_to_basket(browser):
     link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0'
     link1 = 'http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/?promo=offer0'
@@ -60,6 +51,21 @@ def test_message_disappeared_after_adding_product_to_basket(browser):
     page.solve_quiz_and_get_code()
     page_basket = ProductPage(browser, link1)
     page_basket.should_dissapear_of_success_message()
+
+
+def test_user_cant_see_product_in_basket_opened_from_main_page(browser):
+    link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0'
+    link1 = 'http://selenium1py.pythonanywhere.com/ru/basket/'
+    page = MainPage(browser, link)
+    page.open()
+    browser.find_element(*MainPageLocators.BUTTON_GO_YO_BASKET).click()
+    page_basket = ProductPage(browser, link1)
+    text = browser.find_element(*BasketPage.TEXT_YOUR_BASKET_IS_EMPTY).get_attribute('textContent')
+    page_basket.guest_see_text_your_basket_is_emty(text)
+
+
+def test_user_cant_see_product_in_basket_opened_from_product_page(browser):
+    return True
 
 
 
