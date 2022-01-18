@@ -1,5 +1,26 @@
+import faker
+
 from tests.pages.locators import BasePageLocators, LoginPageLocators, MainPageLocators, BasketPage
 from tests.pages.product_page import ProductPage
+
+
+def test_user_can_add_product_to_basket(browser):
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
+    page = ProductPage(browser, link)
+    page.open()
+    f = faker.Faker()
+    email = f.email()
+    password = f.password()
+    page.register_new_user(email, password)
+
+
+def test_guest_can_add_product_to_basket(browser):
+    link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
+    page = ProductPage(browser, link)
+    page.open()
+    browser.find_element(*MainPageLocators.BUTTON_ADD_TO_BASKET).click()
+    browser.find_element(*MainPageLocators.BUTTON_GO_TO_BASKET).click()
+    page.is_element_present(*BasketPage.TEXT_BASKET_IS_NOT_EMPTY)
 
 
 def test_guest_should_see_login_link_on_product_page(browser):

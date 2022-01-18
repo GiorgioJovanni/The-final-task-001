@@ -15,7 +15,6 @@ def browser(request):
     options = Options()
     options.add_experimental_option('prefs', {'intl.accept_languages': language}) # en-US
     browser = webdriver.Chrome(options=options)
-    browser.implicitly_wait(5)  # говорим WebDriver искать каждый элемент в течение 5 секунд
     yield browser
     print("\nquit browser..")
     browser.quit()
