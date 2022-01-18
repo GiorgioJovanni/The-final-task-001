@@ -1,8 +1,8 @@
 import math
 
-from tests.pages.base_page import BasePage
-from tests.pages.locators import BasketPage, BasePageLocators
-from tests.pages.login_page import LoginPage
+from pages.base_page import BasePage
+from pages.locators import BasketPage, BasePageLocators
+from pages.login_page import LoginPage
 from selenium.common.exceptions import NoAlertPresentException
 
 
