@@ -23,7 +23,9 @@ class LoginPageLocators:
 
 class BasketPage:
     TEXT_YOUR_BASKET_IS_EMPTY = (By.XPATH, '//*[@id="content_inner"]/p')
+    TEXT_YOUR_BASKET_IS_NOT_EMPTY = (By.CSS_SELECTOR, '.alertinner p:nth-child(1)')
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages > div:nth-child(1) > div")
+
 
 
 

@@ -25,6 +25,7 @@ def test_user_cant_see_product_in_basket_opened_from_main_page(browser):
     page = ProductPage(browser, link)
     page.open()
     browser.find_element(*MainPageLocators.BUTTON_GO_TO_BASKET).click()
+    page.is_not_element_present(*BasketPage.TEXT_YOUR_BASKET_IS_NOT_EMPTY)
     text = browser.find_element(*BasketPage.TEXT_YOUR_BASKET_IS_EMPTY).get_attribute('textContent')
     page.guest_see_text_your_basket_is_emty(text)
 
