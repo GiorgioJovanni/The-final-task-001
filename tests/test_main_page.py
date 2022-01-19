@@ -31,6 +31,7 @@ def test_user_cant_see_product_in_basket_opened_from_main_page(browser):
     page.guest_see_text_your_basket_is_emty(text)
 
 
+@pytest.mark.xfail
 @pytest.mark.parametrize('link', ["promo=offer0", "promo=offer1", "promo=offer2", "promo=offer3", "promo=offer4",
                                   "promo=offer5", "promo=offer6", "promo=offer7", "promo=offer8", "promo=offer9"])
 def test_guest_can_add_product_to_basket(browser, link):
@@ -42,6 +43,7 @@ def test_guest_can_add_product_to_basket(browser, link):
     page.should_be_basket_massegrs()
 
 
+@pytest.mark.xfail
 def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0'
     link1 = 'http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/?promo=offer0'
@@ -53,6 +55,7 @@ def test_guest_cant_see_success_message_after_adding_product_to_basket(browser):
     page_basket.should_not_be_success_message()
 
 
+@pytest.mark.xfail
 def test_message_disappeared_after_adding_product_to_basket(browser):
     link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0'
     link1 = 'http://selenium1py.pythonanywhere.com/ru/catalogue/coders-at-work_207/?promo=offer0'
