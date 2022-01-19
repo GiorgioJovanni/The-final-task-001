@@ -11,7 +11,7 @@ class BasePage:
         self.browser.implicitly_wait(timeout)
 
     def go_to_login_page(self):
-        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK_INVALID)
+        link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         link.click()
 
     def is_element_present(self, how, what):
@@ -49,7 +49,7 @@ class BasePage:
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
 
     def register_new_user(self, email, password):
-        self.browser.fiend_element(*LoginPageLocators.FIELD_FOR_EMAIL).send_kyes(email)
-        self.browser.fiend_element(*LoginPageLocators.FIELD_FOR_PASSWORD).send_kyes(password)
-        self.browser.fiend_element(*LoginPageLocators.FIELD_FOR_PASSWORD_TWO).send_kyes(password)
-        self.browser.fiend_element(*LoginPageLocators.BUTTON_REGISTER).click()
+        self.browser.find_element(*LoginPageLocators.FIELD_FOR_EMAIL).send_keys(email)
+        self.browser.find_element(*LoginPageLocators.FIELD_FOR_PASSWORD).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.FIELD_FOR_PASSWORD_TWO).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.BUTTON_REGISTER).click()
