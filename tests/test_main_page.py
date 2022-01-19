@@ -1,8 +1,8 @@
 import pytest
 
-from pages.locators import MainPageLocators, BasketPage
-from pages.product_page import ProductPage
-from pages.main_page import MainPage
+from tests.pages.locators import MainPageLocators, BasketPage
+from tests.pages.product_page import ProductPage
+from tests.pages.main_page import MainPage
 
 
 @pytest.mark.login_guest
