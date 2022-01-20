@@ -1,3 +1,4 @@
+import faker
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -48,8 +49,14 @@ class BasePage:
     def should_be_login_link(self):
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented"
 
-    def register_new_user(self, email, password):
+    def register_new_user(self):
+        fake = faker.Faker()
+        email = fake.email()
+        password = fake.password()
         self.browser.find_element(*LoginPageLocators.FIELD_FOR_EMAIL).send_keys(email)
         self.browser.find_element(*LoginPageLocators.FIELD_FOR_PASSWORD).send_keys(password)
         self.browser.find_element(*LoginPageLocators.FIELD_FOR_PASSWORD_TWO).send_keys(password)
         self.browser.find_element(*LoginPageLocators.BUTTON_REGISTER).click()
+
+    def click_on_button(self, how, what):
+        self.browser.find_element(how, what).click()
