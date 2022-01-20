@@ -28,7 +28,3 @@ class BasketPage:
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, "#messages > div:nth-child(1) > div")
     TEXT_BASKET_IS_NOT_EMPTY = (By.CSS_SELECTOR, '.row h2.col-sm-6.h3')
     ITEMS_LIST = (By.CSS_SELECTOR, '.basket-items')
-
-
-
-
