@@ -28,4 +28,4 @@ class ProductPage(BasePage):
         assert '\n            Your basket is empty.\n            Continue shopping\n        ' == text
 
     def guest_can_not_see_items_list(self):
-        self.is_not_element_present(*BasketPage.ITEMS_LIST)
+        self.is_not_element_present(*BasketPage.ITEMS_LIST), "Basket is not empty"
