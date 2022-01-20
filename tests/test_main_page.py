@@ -40,7 +40,7 @@ def test_guest_can_add_product_to_basket(browser, link):
     page.open()
     page.click_on_button(*MainPageLocators.BUTTON_ADD_TO_BASKET)
     page.solve_quiz_and_get_code()
-    page.should_be_basket_massegrs()
+    page.should_be_basket_massages()
 
 
 @pytest.mark.xfail

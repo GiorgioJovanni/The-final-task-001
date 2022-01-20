@@ -1,4 +1,3 @@
-import faker
 import pytest
 
 from tests.pages.locators import BasePageLocators, LoginPageLocators, MainPageLocators, BasketPage
@@ -12,8 +11,7 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     page.open()
     page.click_on_button(*MainPageLocators.BUTTON_GO_TO_BASKET)
     page.is_not_element_present(*BasketPage.TEXT_YOUR_BASKET_IS_NOT_EMPTY)
-    text = browser.find_element(*BasketPage.TEXT_YOUR_BASKET_IS_EMPTY).get_attribute('textContent')
-    page.guest_see_text_your_basket_is_emty(text)
+    page.guest_see_empty_basket()
 
 
 @pytest.mark.need_review
@@ -31,7 +29,7 @@ def test_user_can_add_product_to_basket(browser):
     page = ProductPage(browser, link)
     page.open()
     page.click_on_button(*MainPageLocators.GO_TO_LOGIN_FORM)
-    page.register_new_user()
+    page.register_new_fake_user()
     page.open()
     page.should_be_authorized_user()
     page.click_on_button(*MainPageLocators.BUTTON_ADD_TO_BASKET)
