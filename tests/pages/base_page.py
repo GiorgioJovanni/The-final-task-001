@@ -58,7 +58,7 @@ class BasePage:
         self.browser.find_element(*LoginPageLocators.FIELD_FOR_EMAIL).send_keys(email)
         self.browser.find_element(*LoginPageLocators.FIELD_FOR_PASSWORD).send_keys(password)
         self.browser.find_element(*LoginPageLocators.FIELD_FOR_PASSWORD_TWO).send_keys(password)
-        self.browser.find_element(*LoginPageLocators.BUTTON_REGISTER).click()
+        self.click_on_button(*LoginPageLocators.BUTTON_REGISTER)
 
     def click_on_button(self, how, what):
         self.browser.find_element(how, what).click()
