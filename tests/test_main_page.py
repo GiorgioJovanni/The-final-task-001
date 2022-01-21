@@ -27,7 +27,7 @@ def test_user_cant_see_product_in_basket_opened_from_main_page(browser):
     page.open()
     browser.find_element(*MainPageLocators.BUTTON_GO_TO_BASKET).click()
     page.is_not_element_present(*BasketPage.TEXT_YOUR_BASKET_IS_NOT_EMPTY)
-    page.guest_see_text_your_basket_is_emty()
+    page.guest_see_empty_basket()
 
 
 @pytest.mark.xfail
